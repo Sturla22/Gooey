@@ -18,7 +18,7 @@ def radioGroup(metadata, value):
 
 
 def multiFileChooser(metadata, value):
-    paths = ' '.join(quote(x) for x in value.split(os.pathsep) if x)
+    paths = os.pathsep.join(quote(x) for x in value.split(os.pathsep) if x)
     if metadata['commands'] and paths:
         return u'{} {}'.format(metadata['commands'][0], paths)
     return paths or None
